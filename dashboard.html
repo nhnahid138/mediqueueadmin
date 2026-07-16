@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#071a3a" /><title>MediQueue | Dashboard</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet" /><link rel="stylesheet" href="style.css" /></head>
+<body class="dashboard-page">
+  <header class="dashboard-header"><a class="brand" href="dashboard.html"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></a><div class="header-actions"><span id="userEmail" class="user-email"></span><button id="logoutButton" class="outline-button">Log out</button></div></header>
+  <main class="dashboard-main"><div class="page-intro"><div><p class="eyebrow">DISPLAY CONTROL CENTER</p><h1>Your doctors</h1><p class="muted">Choose a doctor to open their live queue display.</p></div><div class="live-chip"><i></i> Live Firestore</div></div><div id="dashboardMessage" class="dashboard-message" hidden></div><section id="doctorGrid" class="doctor-grid" aria-live="polite"><div class="loading-card"><span class="loader"></span><p>Loading doctors…</p></div></section></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div><script type="module" src="dashboard.js"></script>
+</body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071a3a" />
+  <title>MediQueue TV Display | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-hero" aria-hidden="true">
+      <div class="brand brand--light"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div>
+      <div class="hero-copy"><p class="eyebrow">SMART PATIENT FLOW</p><h1>Every patient,<br />in the right queue.</h1><p>Realtime, clear and dependable displays for modern healthcare.</p></div>
+      <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+    </section>
+    <section class="auth-panel">
+      <form id="loginForm" class="login-card" novalidate>
+        <div class="mobile-brand brand"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div>
+        <p class="eyebrow">WELCOME BACK</p><h2>Sign in to your account</h2><p class="muted">Manage your doctors and TV displays.</p>
+        <div id="loginError" class="form-message error" role="alert" hidden></div>
+        <label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@hospital.com" required />
+        <label for="password">Password</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required /><button id="passwordToggle" type="button" aria-label="Show password">Show</button></div>
+        <div class="form-row"><label class="remember"><input id="remember" type="checkbox" checked /> Keep me signed in</label><button id="forgotPassword" class="text-button" type="button">Forgot password?</button></div>
+        <button id="loginButton" class="primary-button" type="submit"><span class="button-text">Sign in</span><span class="button-spinner" hidden></span></button>
+      </form>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

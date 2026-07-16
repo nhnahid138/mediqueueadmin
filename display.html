@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#06132d" /><title>MediQueue | Now Serving</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet" /><link rel="stylesheet" href="style.css" /></head>
+<body class="display-page">
+  <div id="displayLoading" class="display-loading"><span class="loader loader--large"></span><p>Connecting to your queue…</p></div>
+  <main id="displayApp" class="tv-layout" hidden>
+    <header class="tv-header"><div class="hospital-identity"><div class="hospital-logo">+</div><div><p id="hospitalName" class="hospital-name">MEDIQUEUE HOSPITAL</p><p class="hospital-tagline">PATIENT QUEUE SYSTEM</p></div></div><div class="doctor-meta"><p id="doctorName">Doctor</p><span id="doctorSpecialization">Specialization</span><span id="roomNumber" class="room-pill">Room —</span></div><div class="clock-block"><div id="currentTime" class="current-time">00:00:00</div><div id="currentDate" class="current-date">Loading date</div></div></header>
+    <section class="queue-stage"><div class="realtime-label"><span></span> LIVE QUEUE UPDATE</div><div class="serving-card"><p class="serving-label">NOW SERVING</p><div id="serialNumber" class="serial-number">—</div><div class="serial-line"></div><div id="patientName" class="patient-name">Waiting for the next patient</div></div></section>
+    <footer class="tv-footer"><div class="powered"><span class="mini-mark">+</span> Powered by <strong>MediQueue</strong></div><div id="connectionBadge" class="connection-badge"><i></i><span>Connecting…</span></div><button id="fullscreenButton" class="fullscreen-button" title="Fullscreen (F)"><span>⛶</span> Fullscreen</button></footer>
+  </main>
+  <section id="displayError" class="display-error" hidden><div class="error-icon">!</div><h1 id="errorTitle">Unable to load display</h1><p id="errorText">Please check your connection and try again.</p><button id="retryButton" class="primary-button">Try again</button><a class="back-link" href="dashboard.html">Back to dashboard</a></section>
+  <script type="module" src="display.js"></script>
+</body></html>
