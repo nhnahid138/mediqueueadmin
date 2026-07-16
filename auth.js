@@ -3,7 +3,7 @@ import { browserLocalPersistence, browserSessionPersistence, onAuthStateChanged,
 
 const $ = (id) => document.getElementById(id);
 const form = $('loginForm'), button = $('loginButton'), errorBox = $('loginError');
-onAuthStateChanged(auth, (user) => { if (user) window.location.replace('display.html'); });
+onAuthStateChanged(auth, (user) => { $('authScreen').hidden = Boolean(user); if (user) $('displayLoading').hidden = false; });
 
 function showError(message) { errorBox.textContent = message; errorBox.hidden = false; }
 function setLoading(loading) { button.disabled = loading; button.querySelector('.button-text').textContent = loading ? 'Signing in…' : 'Sign in'; button.querySelector('.button-spinner').hidden = !loading; }

@@ -4,32 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#071a3a" />
-  <title>MediQueue TV Display | Login</title>
+  <title>MediQueue TV Display</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="auth-page">
-  <main class="auth-shell">
-    <section class="auth-hero" aria-hidden="true">
-      <div class="brand brand--light"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div>
-      <div class="hero-copy"><p class="eyebrow">SMART PATIENT FLOW</p><h1>Every patient,<br />in the right queue.</h1><p>Realtime, clear and dependable displays for modern healthcare.</p></div>
-      <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
-    </section>
-    <section class="auth-panel">
-      <form id="loginForm" class="login-card" novalidate>
-        <div class="mobile-brand brand"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div>
-        <p class="eyebrow">WELCOME BACK</p><h2>Sign in to your account</h2><p class="muted">Manage your doctors and TV displays.</p>
-        <div id="loginError" class="form-message error" role="alert" hidden></div>
-        <label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@hospital.com" required />
-        <label for="password">Password</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required /><button id="passwordToggle" type="button" aria-label="Show password">Show</button></div>
-        <div class="form-row"><label class="remember"><input id="remember" type="checkbox" checked /> Keep me signed in</label><button id="forgotPassword" class="text-button" type="button">Forgot password?</button></div>
-        <button id="loginButton" class="primary-button" type="submit"><span class="button-text">Sign in</span><span class="button-spinner" hidden></span></button>
-      </form>
-    </section>
+  <main id="authScreen" class="auth-shell">
+    <section class="auth-hero" aria-hidden="true"><div class="brand brand--light"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div><div class="hero-copy"><p class="eyebrow">SMART PATIENT FLOW</p><h1>Every patient,<br />in the right queue.</h1><p>Realtime, clear and dependable displays for modern healthcare.</p></div><div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div></section>
+    <section class="auth-panel"><form id="loginForm" class="login-card" novalidate><div class="mobile-brand brand"><span class="brand-mark">+</span><span>Medi<span>Queue</span></span></div><p class="eyebrow">WELCOME BACK</p><h2>Sign in to your account</h2><p class="muted">Open your live TV display.</p><div id="loginError" class="form-message error" role="alert" hidden></div><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@hospital.com" required /><label for="password">Password</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required /><button id="passwordToggle" type="button">Show</button></div><div class="form-row"><label class="remember"><input id="remember" type="checkbox" checked /> Keep me signed in</label><button id="forgotPassword" class="text-button" type="button">Forgot password?</button></div><button id="loginButton" class="primary-button" type="submit"><span class="button-text">Sign in</span><span class="button-spinner" hidden></span></button></form></section>
   </main>
+
+  <div id="displayLoading" class="display-loading" hidden><span class="loader loader--large"></span><p>Loading doctors…</p></div>
+  <main id="displayApp" class="tv-layout" hidden>
+    <header class="tv-header"><div class="hospital-identity"><div class="hospital-logo">+</div><div><p id="hospitalName" class="hospital-name">MEDIQUEUE HOSPITAL</p><p class="hospital-tagline">PATIENT QUEUE SYSTEM</p></div></div><div class="doctor-meta"><label for="doctorSelect" style="display:block;color:#a9c4eb;font-size:10px;letter-spacing:1px;margin-bottom:5px">SELECT DOCTOR</label><select id="doctorSelect" style="max-width:310px;background:#174d8b88;border:1px solid #77a9df88;border-radius:8px;color:#fff;padding:9px 32px 9px 12px;font-weight:600;outline:none"><option value="">Select doctor…</option></select><p id="doctorName" style="margin-top:10px">Select a doctor</p><span id="doctorSpecialization">Live queue will appear here</span><span id="roomNumber" class="room-pill">Room —</span></div><div class="clock-block"><div id="currentTime" class="current-time">00:00:00</div><div id="currentDate" class="current-date">Loading date</div></div></header>
+    <section class="queue-stage"><div class="realtime-label"><span></span> LIVE QUEUE UPDATE</div><div class="serving-card"><p class="serving-label">NOW SERVING</p><div id="serialNumber" class="serial-number">—</div><div class="serial-line"></div><div id="patientName" class="patient-name">Select a doctor from the list above</div></div></section>
+    <footer class="tv-footer"><div class="powered"><span class="mini-mark">+</span> Powered by <strong>MediQueue</strong></div><div id="connectionBadge" class="connection-badge"><i></i><span>Connecting…</span></div><button id="fullscreenButton" class="fullscreen-button" title="Fullscreen (F)"><span>⛶</span> Fullscreen</button></footer>
+  </main>
+  <section id="displayError" class="display-error" hidden><div class="error-icon">!</div><h1 id="errorTitle">Unable to load display</h1><p id="errorText">Please check your connection and try again.</p><button id="retryButton" class="primary-button">Try again</button></section>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="auth.js"></script>
+  <script type="module" src="display.js"></script>
 </body>
 </html>
